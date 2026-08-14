@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elegant Nature | Modern Aesthetic</title>
+
+    <!--Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f6f6f6;
+    color:#333;
+}
+
+/*HEADER*/
+
+header{
+    background:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80");
+    background-size:cover;
+    background-position:center;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+    margin:40px 120px;
+    border-radius:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+/*NAVBAR*/
+.navbar{
+    width:100%;
+    position:sticky;
+    top:18px;
+    z-index:40;
+    display:flex;
+    justify-content:center;
+    pointer-events:auto;
+}
+.nav-container{
+    width:calc(100% - 80px);
+    max-width:1200px;
+    background:rgba(255,255,255,0.06);
+    backdrop-filter:blur(6px);
+    border-radius:12px;
+    padding:10px 18px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+.logo{font-weight:700;color:rgb(177, 177, 177);text-decoration:none;font-size:18px}
+.logo span{color:#B8860B}
+.nav-links{list-style:none;display:flex;gap:18px;align-items:center}
+.nav-links a{color:rgb(117, 66, 7);text-decoration:none;padding:8px 12px;border-radius:8px;transition:.2s}
+.nav-links a:hover{background:rgba(255,255,255,.06);color:#ff0000a4}
+.nav-toggle{display:none;background:transparent;border:0;color:rgb(146, 59, 1);font-size:20px}
+
+@media(max-width:700px){
+    .nav-links{display:none}
+    .nav-toggle{display:block}
+    .nav-container{width:calc(100% - 40px)}
+}
+
+/* mobile open state */
+.nav-links.open{
+    display:flex;
+    position:absolute;
+    right:18px;
+    top:54px;
+    flex-direction:column;
+    gap:8px;
+    background:rgba(0,0,0,.6);
+    padding:12px;
+    border-radius:8px;
+}
+.nav-links.open a{color:whitesmoke}
+
+/* Ensure anchor targets aren't hidden behind the sticky navbar */
+html{
+    scroll-behavior:smooth;
+    scroll-padding-top:110px;
+}
+section{
+    scroll-margin-top:110px;
+}
+
+@media(max-width:700px){
+    html{scroll-padding-top:80px}
+    section{scroll-margin-top:80px}
+}
+
+header h1{
+    font-size:50px;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+/* UPLOADER */
+.uploader{
+    display:flex;
+    gap:10px;
+    align-items:center;
+    justify-content:center;
+    margin-top:18px;
+}
+.uploader input[type="file"]{display:none}
+.uploader label{
+    background:#111;color:white;padding:10px 16px;border-radius:8px;cursor:pointer;box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+.uploader small{color:#666;font-size:13px}
+.uploader .reset{
+    background:transparent;
+    border:1px solid rgba(0,0,0,.12);
+    color:#333;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+.uploader .reset{
+    background:transparent;
+    border:1px solid rgba(0,0,0,.12);
+    color:#333;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+header p{
+    font-size:18px;
+    opacity:.9;
+    color: whitesmoke;
+}
+
+/*SECTION*/
+
+section{
+    width:80%;
+    margin:40px auto;
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+h2{
+    color:#B8860B;
+    margin-bottom:15px;
+}
+
+p{
+    line-height:1.8;
+    color:#555;
+    margin-bottom:15px;
+}
+
+/*BUTTON*/
+
+a{
+    text-decoration:none;
+    color:white;
+}
+
+.btn{
+    display:inline-block;
+    background:#111;
+    padding:14px 35px;
+    border-radius:50px;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+.btn:hover{
+    background:#B8860B;
+    transform:translateY(-4px);
+}
+
+/*GALLERY*/
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    gap:35px;
+    flex-wrap:wrap;
+    margin-top:30px;
+    padding:20px;
+}
+
+.gallery-item{
+    width:280px;
+    background:#fff;
+    padding:12px 12px 25px 12px;
+    border-radius:3px;
+    overflow:hidden;
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
+    transition:.4s ease;
+    position:relative;
+}
+
+/*Foto*/
+.gallery-item img{
+    width:100%;
+    height:230px;
+    object-fit:cover;
+    display:block;
+    border-radius:1px;
+}
+
+/* Tulisan dibawah Polaroid*/
+.desc{
+    padding:18px 8px 0;
+    text-align:center;
+    font-family:'Poppins',sans-serif;
+    font-size:15px;
+    font-weight:500;
+    color:#444;
+    letter-spacing:.5px;
+}
+
+/*HOVERIUNG/transisi seluiruh section gambar*/
+.gallery-item:hover{
+    transform:translateY(-12px) rotate(0deg) scale(1.03);
+    box-shadow:0 20px 35px rgba(0,0,0,.22);
+}
+
+/*HOVERIUNG/transisi seluiruh section gambar yg ada roptasi*/
+.gallery-item:nth-child(1){
+    transform:rotate(-2deg);
+}
+
+.gallery-item:nth-child(2){
+    transform:rotate(1.5deg);
+}
+
+.gallery-item:nth-child(3){
+    transform:rotate(-1deg);
+}
+
+.gallery-item:nth-child(4){
+    transform:rotate(2deg);
+}
+
+.gallery-item:nth-child(5){
+    transform:rotate(-1.5deg);
+}
+
+.gallery-item:nth-child(6){
+    transform:rotate(1deg);
+}
+
+.gallery-item:nth-child(7){
+    transform:rotate(-2deg);
+}
+
+.gallery-item:nth-child(8){
+    transform:rotate(1.5deg);
+}
+
+/*trans-balik*/
+.gallery-item:nth-child(1):hover,
+.gallery-item:nth-child(2):hover,
+.gallery-item:nth-child(3):hover,
+.gallery-item:nth-child(4):hover,
+.gallery-item:nth-child(5):hover,
+.gallery-item:nth-child(6):hover,
+.gallery-item:nth-child(7):hover,
+.gallery-item:nth-child(8):hover{
+    transform:translateY(-12px) rotate(0deg) scale(1.03);
+}
+
+/*media device ga barubah bagian gambar*/
+@media(max-width:900px){
+
+    .gallery{
+        gap:25px;
+        padding:10px;
+    }
+
+    .gallery-item{
+        width:260px;
+    }
+
+    .gallery-item img{
+        height:210px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .gallery-item{
+        width:100%;
+        max-width:300px;
+    }
+
+    .gallery-item img{
+        height:230px;
+    }
+
+}
+
+/*box section 6*/ 
+.container{ 
+    display:flex; 
+    gap:20px; 
+    flex-wrap:wrap; 
+    margin-top:20px; 
+} 
+.box{ 
+    flex:1; 
+    min-width:250px; 
+    padding:25px; 
+    border-radius:18px; 
+    color:white; 
+    box-shadow:0 10px 25px rgba(0,0,0,.12); 
+} 
+.box h3{ 
+    color:white; 
+    margin-bottom:10px; 
+} 
+.box p{ 
+    color:white; 
+} 
+.red{ 
+    background:linear-gradient(135deg,#C08B5C,#9C6644); 
+} 
+.green{ 
+    background:linear-gradient(135deg,#4E7D6E,#2F5D50); 
+} 
+.blue{ background:linear-gradient(135deg,#232526,#414345); 
+}
+
+.warna {
+    color:#8B0000;
+}
+
+.besar {
+    font-size:24px;
+}
+
+.bold {
+    font-weight:bold;
+}
+
+.italic {
+    font-style:italic;
+}
+
+.center {
+    text-align:center;
+}
+
+/*FOOTER*/
+
+footer{
+    margin-top:50px;
+    padding:25px;
+    text-align:center;
+    color:#888;
+    font-size:14px;
+}
+
+/*Media device ga berubah bagian */
+
+@media(max-width:900px){
+
+header{
+    margin:20px;
+    padding:70px 20px;
+}
+
+header h1{
+    font-size:36px;
+}
+
+section{
+    width:92%;
+}
+
+}
+
+    </style>
+
+</head>
+<body>
+
+<!--html heder-->
+
+<nav class="navbar">
+    <div class="nav-container">
+        <a class="logo" href="#">Elegant <span>Nature</span></a>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#numb">Numbering</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#typography">Typography</a></li>
+            <li><a href="#boxes">Boxes</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </div>
+</nav>
+
+<header>
+
+<h1>Elegant Nature</h1>
+
+<p><strong>Modern Aesthetic Web Design</strong></p>
+
+</header>
+
+<!--section 1 tulisan about-->
+
+<section id="about">
+
+<h2>1. About HTML & CSS</h2>
+
+<p>
+HTML digunakan untuk membangun struktur sebuah halaman web,
+sedangkan CSS memberikan tampilan yang elegan,
+modern, dan menarik bagi pengguna.
+</p>
+
+<p>
+Dengan kombinasi HTML dan CSS,
+website dapat memiliki desain yang bersih,
+responsif,
+dan memberikan pengalaman visual yang nyaman.
+</p>
+
+</section>
+
+<!--section 2 nomor 2 -->
+
+<section>
+
+<h2 id="numb">2. Numbering (Ordered List)</h2>
+
+<ol>
+
+<li>HTML Structure</li>
+
+<li>CSS Styling</li>
+
+<li>Responsive Layout</li>
+
+<li>Modern UI Design</li>
+
+</ol>
+
+</section>
+
+<!--section 3 nomor 3 explore-->
+
+<section>
+
+<h2>3. Explore</h2>
+
+<p>
+
+<a href="https://google.com" class="btn"> <!-- tombolnya yg section 3-->
+
+Explore More <!-- teks tombol -->
+
+</a>
+
+</p>
+
+</section>
+
+<!-- section4 masuk ke gambar (css juga di set semua disana) -->
+
+<section id="gallery">
+
+<h2>4. Nature Gallery</h2>
+<div class="gallery">
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Mountain">
+        <div class="desc">Gallery 1</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Lake">
+        <div class="desc">Gallery 2</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Forest">
+        <div class="desc">Gallery 3</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="River">
+        <div class="desc">Gallery 4</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Beach">
+        <div class="desc">Gallery 5</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sunrise">
+        <div class="desc">Gallery 6</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sunrise">
+        <div class="desc">Gallery 7</div>
+    </div>
+
+    <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Sunrise">
+        <div class="desc">Gallery 8</div>
+    </div>
+
+</div>
+
+
+</section>
+
+    <div class="uploader" style="margin-top:18px; text-align:center;">
+        <label for="galleryFiles">Upload Photos</label>
+        <input id="galleryFiles" type="file" accept="image/*" multiple>
+        <button id="galleryReset" type="button" class="reset">Reset Gallery</button>
+        <div><small id="uploadInfo">Pilih gambar untuk mengganti/menambahkan ke gallery (tidak tersimpan permanen).</small></div>
+    </div>
+
+
+<!-- section 5 tulisan-->
+
+<section id="typography">
+
+<h2>5. Typography Example</h2>
+
+<p class="warna">  
+    Tulisan berwarna merah tua
+</p>
+
+<p class="besar">  
+    Tulisan berukuran 24px
+</p>
+
+<p class="bold">
+
+Tulisan Tebal
+
+</p>
+
+<p class="italic">
+
+Tulisan Miring
+
+</p>
+
+<p class="center">
+
+Tulisan Rata Tengah
+
+</p>
+
+</section>
+
+<!--section 6 box-->
+
+<section id="boxes">
+
+<h2>6. Modern Feature Boxes</h2>
+
+<div class="container">
+
+<div class="box red">
+
+<h3>Elegant Design</h3>
+
+<p>
+Minimalist layout dengan warna hangat yang memberikan
+kesan premium.
+</p>
+
+</div>
+
+<div class="box green">
+
+<h3>Nature Inspired</h3>
+
+<p>
+Menggabungkan elemen alam dengan tampilan modern
+yang bersih.
+</p>
+
+</div>
+
+<div class="box blue">
+
+<h3>Professional Look</h3>
+
+<p>
+Desain gelap elegan yang cocok untuk portfolio,
+company profile,
+dan landing page.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!--KAKI-->
+
+<footer id="contact">
+
+© 2026 Elegant Nature • Modern Lio Website
+
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+    const btn = document.querySelector('.nav-toggle');
+    const links = document.querySelector('.nav-links');
+    if(!btn || !links) return;
+    btn.addEventListener('click', function(){
+        const isOpen = links.classList.toggle('open');
+        btn.setAttribute('aria-expanded', isOpen);
+    });
+    links.querySelectorAll('a').forEach(a=>{
+        a.addEventListener('click', ()=>{
+            if(links.classList.contains('open')){
+                links.classList.remove('open');
+                btn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // Gallery upload handler
+    const fileInput = document.getElementById('galleryFiles');
+    const uploadInfo = document.getElementById('uploadInfo');
+    const gallery = document.querySelector('.gallery');
+    const initialGalleryHTML = gallery ? gallery.innerHTML : '';
+    const resetBtn = document.getElementById('galleryReset');
+    let nextGalleryIndex = 0;
+    if(fileInput && gallery){
+        fileInput.addEventListener('change', function(e){
+            const files = Array.from(e.target.files);
+            if(files.length === 0) return;
+            uploadInfo.textContent = 'Memproses ' + files.length + ' gambar...';
+            files.forEach((file) => {
+                const reader = new FileReader();
+                reader.onload = function(ev){
+                    const dataUrl = ev.target.result;
+                    const items = gallery.querySelectorAll('.gallery-item');
+                    const targetIndex = nextGalleryIndex++;
+                    if(targetIndex < items.length){
+                        const img = items[targetIndex].querySelector('img');
+                        if(img) img.src = dataUrl;
+                        const desc = items[targetIndex].querySelector('.desc');
+                        if(desc) desc.textContent = file.name;
+                    } else {
+                        const el = document.createElement('div');
+                        el.className = 'gallery-item';
+                        el.innerHTML = '<img src="' + dataUrl + '" alt="' + file.name + '"><div class="desc">' + file.name + '</div>';
+                        gallery.appendChild(el);
+                    }
+                };
+                reader.readAsDataURL(file);
+            });
+            setTimeout(()=>{ uploadInfo.textContent = files.length + ' gambar diterapkan.'; }, 500);
+        });
+    }
+    if(resetBtn && gallery){
+        resetBtn.addEventListener('click', function(){
+            gallery.innerHTML = initialGalleryHTML;
+            nextGalleryIndex = 0;
+            if(uploadInfo) uploadInfo.textContent = 'Gallery dikembalikan ke kondisi awal.';
+        });
+    }
+});
+</script>
+
+</body>
+</html>
